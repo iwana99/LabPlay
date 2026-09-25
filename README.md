@@ -25,25 +25,22 @@ Each learner attempt receives an isolated Docker sandbox, while grading and life
 
 ## Architecture
 
-Partner App
-    ↓
-LabPlay API
-    ↓
-Attempt
-    ↓
-BullMQ / Redis
-    ↓
-Worker
-    ↓
-Runner
-    ↓
-Docker Sandbox
+## Architecture
 
-Browser
-    ↓
-LabPlay Frontend
-    ↓
-API / Terminal Gateway
+```mermaid
+flowchart LR
+    Partner[Partner App] --> API[LabPlay API]
+    API --> Attempt[Attempt]
+    Attempt --> Queue[Redis / BullMQ]
+    Queue --> Worker[Worker]
+    Worker --> Runner[Runner]
+    Runner --> Docker[Docker Sandbox]
+
+    Browser[Student Browser] --> Frontend[LabPlay Frontend]
+    Frontend --> API
+    Frontend --> Gateway[Terminal Gateway]
+    Gateway --> Runner
+```
 
 ## Tech Stack
 
