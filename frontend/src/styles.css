@@ -1,0 +1,26 @@
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #070a0f; color: #edf2f7; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { border: 0; cursor: pointer; font: inherit; }
+.center { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 24px; }
+.lab-shell { height: 100vh; display: grid; grid-template-columns: minmax(320px, 40%) 1fr; gap: 8px; padding: 8px; }
+.task-panel, .work-panel { min-width: 0; border: 1px solid #263142; border-radius: 14px; background: #0d121a; overflow: hidden; }
+.task-panel { padding: 22px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto; }
+.lab-header { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.lab-header small { display: block; opacity: .65; margin-top: 4px; }
+.progress { display: flex; gap: 6px; flex-wrap: wrap; }
+.dot { width: 30px; height: 5px; background: #475569; border-radius: 999px; }
+.dot.passed { background: #22c55e; }.dot.active { background: #38bdf8; }.dot.locked { background: #334155; }
+.instructions { white-space: pre-wrap; line-height: 1.55; color: #d8e1ec; }
+.feedback { padding: 12px 14px; border-radius: 10px; background: #2b1b13; border: 1px solid #7c3f16; }
+.task-actions { display: flex; gap: 10px; margin-top: auto; justify-content: flex-end; }
+.primary, .secondary { padding: 10px 16px; border-radius: 10px; }
+.primary { background: #22c55e; color: #04110a; font-weight: 700; }.secondary { background: #223047; color: #fff; }
+.work-panel { display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.workspace { min-height: 0; display: flex; flex-direction: column; }
+.workspace-toolbar { display: flex; justify-content: space-between; gap: 12px; padding: 8px; background: #101722; }
+.tabs { display: flex; gap: 4px; overflow-x: auto; }.tabs button { background: transparent; color: #a9b7c8; padding: 8px; }.tabs button.active { color: white; background: #263142; border-radius: 8px; }
+.output-panel { border-top: 1px solid #263142; padding: 12px; max-height: 30vh; overflow: auto; }.output-panel pre { white-space: pre-wrap; }
+.terminal-host { width: 100%; height: 100%; padding: 10px; background: #080b10; }
+.error { color: #fca5a5; }
+@media (max-width: 900px) { .lab-shell { grid-template-columns: 1fr; height: auto; min-height: 100vh; }.work-panel { min-height: 60vh; } }
